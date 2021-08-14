@@ -16,10 +16,11 @@
         android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
+        android:layout_marginStart="24dp"
         android:text="@string/name_heroes"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_toRightOf="@id/img_photo"
         />
 
     <TextView
@@ -27,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_name"
-        android:layout_marginStart="26dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/img_photo"
         android:ellipsize="end"
