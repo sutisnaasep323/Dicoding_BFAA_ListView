@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         adapter = HeroAdapter(this)
         listView.adapter = adapter
 
-        prepare()   // siapkan data
+        prepare()   // siapkan data. ini digunakan untuk inisiasi setiap data
         addItem() // masukkan data tsb dg looping
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
@@ -39,18 +39,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addItem() {
-        for (position in dataName.indices) {
+        //digunakan untuk memasukan data data ke arraylist supaya bisa diproses oleh adapter
+        for (position in dataName.indices) { // Membuat perulangan dan menggunakan model untuk setter setiap data
             val hero = Hero(
                 dataPhoto.getResourceId(position, -1),
                 dataName[position],
                 dataDescription[position]
             )
-            heroes.add(hero)
+            heroes.add(hero) // untuk memasukan ke arraylist, lalu memanggil setter yang berada di adapter dan memasukan arraylist heroes sebagai argumen
         }
-        adapter.heroes = heroes
+        adapter.heroes = heroes // memasukkan data
     }
 
     private fun prepare() {
+        //Di sini kita memanggil array yang tadi sudah dibuat pada berkas strings.xml
         dataName = resources.getStringArray(R.array.data_name)
         dataDescription = resources.getStringArray(R.array.data_description)
         dataPhoto = resources.obtainTypedArray(R.array.data_photo)

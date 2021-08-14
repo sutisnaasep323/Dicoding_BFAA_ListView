@@ -9,10 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class HeroAdapter internal constructor(private val context: Context): BaseAdapter(){
+    //constructor disini untuk mengirimkan context ke dalam adapter
     internal var heroes = arrayListOf<Hero>()
+    // Variable heroes berfungsi untuk menampung data yang dikirim dari activity dan digunakan sebagai sumber data untuk dimasukkan ke dalam ViewHolder
 
     // override fun getCount(): Int = heroes.size -> cara singkat
-    override fun getCount(): Int {
+    override fun getCount(): Int { // getCount() digunakan untuk mengetahui berapa banyak item yang akan ditampilkan.
         return heroes.size
     }
 
@@ -41,6 +43,8 @@ class HeroAdapter internal constructor(private val context: Context): BaseAdapte
         val hero = getItem(position) as Hero
         viewHolder.bind(hero)
         return itemView
+
+        // getView()  digunakan untuk memanggil layout item xml yang sudah dibuat dan melakukan proses manipulasi setiap komponennya seperti textview dan imageview melalui kelas ViewHolder
     }
 
     private inner class ViewHolder internal constructor(view: View) {
