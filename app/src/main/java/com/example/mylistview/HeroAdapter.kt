@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.mylistview.databinding.ItemHeroBinding
 import de.hdodenhof.circleimageview.CircleImageView
 
 class HeroAdapter internal constructor(private val context: Context): BaseAdapter(){
@@ -49,13 +50,20 @@ class HeroAdapter internal constructor(private val context: Context): BaseAdapte
     }
 
     private inner class ViewHolder internal constructor(view: View) {
-        private val txtName: TextView = view.findViewById(R.id.txt_name)
-        private val txtDescription: TextView = view.findViewById(R.id.txt_description)
-        private val imgPhoto: CircleImageView = view.findViewById(R.id.img_photo)
+        //kode ini akan di refactor menggunakan view binding
+//        private val txtName: TextView = view.findViewById(R.id.txt_name)
+//        private val txtDescription: TextView = view.findViewById(R.id.txt_description)
+//        private val imgPhoto: CircleImageView = view.findViewById(R.id.img_photo)
+        
+        private val binding = ItemHeroBinding.bind(view)
+        
         internal fun bind(hero: Hero) {
-            txtName.text = hero.name
-            txtDescription.text = hero.description
-            imgPhoto.setImageResource(hero.photo)
+//            txtName.text = hero.name
+//            txtDescription.text = hero.description
+//            imgPhoto.setImageResource(hero.photo)
+            binding.txtName.text = hero.name
+            binding.txtDescription.text = hero.description
+            binding.imgPhoto.setImageResource(hero.photo)
         }
     }
 }
